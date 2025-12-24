@@ -29,119 +29,95 @@ header p {
   color: #9ca3af;
 }
 
+/* SEARCH + FILTER */
 .controls {
   margin-top: 15px;
 }
 
 #searchBar, #genreFilter {
   padding: 10px;
-  width: 250px;
+  width: 240px;
   border-radius: 6px;
   border: none;
   font-size: 15px;
   margin: 5px;
 }
 
+/* CONTAINER */
 .container {
-  padding: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
-}
-  
-.anime-list {
+  padding: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* space between cards */
-  padding: 20px;
+  gap: 20px;
 }
 
+/* CARD */
 .anime-card {
-  display: flex; /* horizontal layout */
+  display: flex;
   background: #1f2933;
-  border: 2px solid #555
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
 
 .anime-card img {
-  width: 150px; /* fixed width for cover */
+  width: 150px;
   object-fit: cover;
+  border-radius: 10px 0 0 10px;
 }
 
 .anime-info {
   padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.anime-info h3 {
-  margin: 0 0 10px 0;
-}
-
-.anime-info p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.anime-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.7);
+  flex: 1;
 }
 
 .anime-title {
-  font-size: 18px;
-  margin: 0;
   color: #facc15;
+  margin: 0 0 5px 0;
 }
 
 .genre {
   font-size: 12px;
   color: #38bdf8;
-  margin: 6px 0;
+  margin-bottom: 6px;
 }
 
-.anime-info p {
+/* DESCRIPTION */
+.anime-description {
   font-size: 14px;
-  color: #d1d5db;
-  height: 150px;
+  line-height: 1.6;
+  color: #e5e7eb;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.anime-description.expanded {
+  -webkit-line-clamp: unset;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
 }
 
 .anime-info a {
   display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
+  margin-top: 8px;
   background: #38bdf8;
   color: #000;
-  padding: 8px 12px;
+  padding: 7px 12px;
   border-radius: 5px;
-  font-weight: bold;
-  }
-.genre {
-  font-size: 12px;
-  color: #38bdf8;
-  margin: 6px 0;
-}
-
-.anime-info p {
-  font-size: 14px;
-  color: #d1d5db;
-  height: 150px;
-  overflow: hidden;
-}
-
-.anime-info a {
-  display: inline-block;
-  margin-top: 10px;
   text-decoration: none;
-  background: #38bdf8;
-  color: #000;
-  padding: 8px 12px;
-  border-radius: 5px;
   font-weight: bold;
 }
 
@@ -171,367 +147,890 @@ footer {
       <option value="Supernatural">Supernatural</option>
       <option value="Sci-Fi">Sci-Fi</option>
       <option value="Comedy">Comedy</option>
+      <option value="Romance">Romance</option>
+      <option value="Sports">Sports</option>
+      <option value="School">School</option>
     </select>
   </div>
 </header>
 
 <div class="container">
 
-<!-- Attack on Titan -->
+<!-- ATTACK ON TITAN -->
 <div class="anime-card" data-genre="Action Dark Fantasy">
 <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Attack on Titan</h2>
 <div class="genre">Action • Dark • Fantasy</div>
-<p>
-Humanity lives behind enormous walls to protect itself from Titans—giant humanoid creatures that devour humans without mercy.
-Eren Yeager dreams of freedom beyond the walls, but tragedy forces him into a brutal war for survival.
-The series explores themes of freedom, morality, war, and the true nature of humanity through shocking twists and intense battles.
+<p class="anime-description">
+Humanity hides behind massive walls to survive against Titans.
+Eren Yeager seeks freedom but is dragged into a brutal war questioning morality and humanity itself.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=attack+on+titan" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Demon Slayer -->
+<!-- DEMON SLAYER -->
 <div class="anime-card" data-genre="Action Supernatural Fantasy">
 <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Demon Slayer</h2>
 <div class="genre">Action • Supernatural • Fantasy</div>
-<p>
-After his family is slaughtered by demons, Tanjiro Kamado becomes a Demon Slayer to protect others from the same fate.
-His sister Nezuko, now a demon, still shows signs of humanity.
-The anime is praised for its emotional storytelling, breathtaking animation, and powerful sword combat.
+<p class="anime-description">
+After demons slaughter his family, Tanjiro becomes a Demon Slayer.
+Praised for emotional storytelling and stunning animation.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=demon+slayer" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- One Piece -->
+<!-- ONE PIECE -->
 <div class="anime-card" data-genre="Adventure Action Fantasy">
 <img src="https://cdn.myanimelist.net/images/anime/6/73245.jpg">
 <div class="anime-info">
 <h2 class="anime-title">One Piece</h2>
 <div class="genre">Adventure • Action • Fantasy</div>
-<p>
-Monkey D. Luffy sets sail to become the Pirate King by finding the legendary One Piece.
-Along the way, he gathers a loyal crew and challenges powerful enemies and corrupt systems.
-This long-running series focuses on dreams, freedom, loyalty, and unforgettable adventures.
+<p class="anime-description">
+Monkey D. Luffy sails to become Pirate King.
+A legendary journey of freedom, dreams, and loyalty.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=one+piece" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Naruto -->
+<!-- NARUTO -->
 <div class="anime-card" data-genre="Action Adventure Fantasy">
 <img src="https://cdn.myanimelist.net/images/anime/13/17405.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Naruto</h2>
 <div class="genre">Action • Adventure • Fantasy</div>
-<p>
-Naruto Uzumaki is an energetic ninja shunned by his village due to a dangerous beast sealed inside him.
-Despite hardship and loneliness, he works tirelessly to become Hokage.
-Naruto is a story of perseverance, friendship, self-belief, and overcoming hatred.
+<p class="anime-description">
+Naruto Uzumaki dreams of becoming Hokage despite rejection.
+A story of perseverance and friendship.
 </p>
-<a href="https://hianime.to/search?keyword=Naruto" target="_blank">Watch</a>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=naruto" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Death Note -->
+<!-- DEATH NOTE -->
 <div class="anime-card" data-genre="Dark Psychological Supernatural">
 <img src="https://cdn.myanimelist.net/images/anime/9/9453.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Death Note</h2>
 <div class="genre">Dark • Psychological • Supernatural</div>
-<p>
-Light Yagami discovers a notebook that allows him to kill anyone by writing their name.
-Believing himself to be justice, he attempts to cleanse the world of criminals.
-A genius detective named L challenges him in a legendary battle of intelligence and morality.
+<p class="anime-description">
+Light Yagami gains the power to kill by writing names.
+A legendary battle of intelligence and morality.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=death+note" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Jujutsu Kaisen -->
+<!-- JUJUTSU KAISEN -->
 <div class="anime-card" data-genre="Action Dark Supernatural">
 <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Jujutsu Kaisen</h2>
 <div class="genre">Action • Dark • Supernatural</div>
-<p>
-Yuji Itadori becomes the host of a powerful curse after swallowing a cursed object.
-He enrolls in Jujutsu High to fight monstrous curses alongside skilled sorcerers.
-The series combines brutal action, dark humor, and stunning animation.
+<p class="anime-description">
+Yuji Itadori becomes host to a deadly curse.
+Dark, fast-paced action with stunning visuals.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=jujutsu+kaisen" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Spy x Family -->
-<div class="anime-card" data-genre="Comedy Action Spy">
+<!-- KONOSUBA -->
+<div class="anime-card" data-genre="Comedy Fantasy Adventure">
+<img src="https://cdn.myanimelist.net/images/anime/8/77831.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Konosuba</h2>
+<div class="genre">Comedy • Fantasy • Adventure</div>
+<p class="anime-description">
+A hilarious parody of fantasy tropes.
+Full of chaos, magic, and ridiculous adventures.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=konosuba" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- MY DRESS-UP DARLING -->
+<div class="anime-card" data-genre="Romance Comedy School">
+<img src="https://cdn.myanimelist.net/images/anime/1179/119897.jpg">
+<div class="anime-info">
+<h2 class="anime-title">My Dress-Up Darling</h2>
+<div class="genre">Romance • Comedy • School</div>
+<p class="anime-description">
+A shy craftsman bonds with a cosplay-loving girl.
+Wholesome romance with creativity and humor.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=my+dress-up+darling" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- BLUE BOX -->
+<div class="anime-card" data-genre="Romance Sports School">
+<img src="https://i.postimg.cc/J4dJ3knt/images-(4).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Blue Box</h2>
+<div class="genre">Romance • Sports • School</div>
+<p class="anime-description">
+Two athletes chase dreams and love.
+A soft blend of romance and competition.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=blue+box" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- WIND BREAKER -->
+<div class="anime-card" data-genre="Action Sports School">
+<img src="https://i.postimg.cc/QM6rVhm6/images-(1).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Wind Breaker</h2>
+<div class="genre">Action • Sports • School</div>
+<p class="anime-description">
+A delinquent school where strength rules.
+High-energy fights and loyalty-driven drama.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=wind+breaker" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- DRAGON BALL Z -->
+<div class="anime-card" data-genre="Action Adventure Fantasy">
+<img src="https://i.postimg.cc/fbNtJMHL/images-(3).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Dragon Ball Z</h2>
+<div class="genre">Action • Adventure • Fantasy</div>
+<p class="anime-description">
+Goku defends Earth against powerful villains while pushing his limits through intense battles.
+A legendary series focused on growth, sacrifice, and iconic transformations.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=dragon+ball+z" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- FULLMETAL ALCHEMIST BROTHERHOOD -->
+<div class="anime-card" data-genre="Action Adventure Fantasy">
+<img src="https://cdn.myanimelist.net/images/anime/1223/96541.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Fullmetal Alchemist: Brotherhood</h2>
+<div class="genre">Action • Adventure • Fantasy</div>
+<p class="anime-description">
+Two brothers use alchemy to fix a terrible mistake that cost them their bodies.
+A deep story about sacrifice, war, morality, and the value of human life.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=fullmetal+alchemist+brotherhood" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- STEINS;GATE -->
+<div class="anime-card" data-genre="Sci-Fi Psychological">
+<img src="https://cdn.myanimelist.net/images/anime/5/73199.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Steins;Gate</h2>
+<div class="genre">Sci-Fi • Psychological</div>
+<p class="anime-description">
+A group of friends accidentally discovers time travel and faces its devastating consequences.
+A slow-burn thriller with emotional twists and complex storytelling.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=steins;gate" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- TOKYO GHOUL -->
+<div class="anime-card" data-genre="Dark Action Supernatural">
+<img src="https://cdn.myanimelist.net/images/anime/5/64449.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Tokyo Ghoul</h2>
+<div class="genre">Dark • Action • Supernatural</div>
+<p class="anime-description">
+A college student becomes half-ghoul and struggles between human and monster worlds.
+A tragic story exploring identity, suffering, and survival.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=tokyo+ghoul" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- HUNTER X HUNTER -->
+<div class="anime-card" data-genre="Adventure Action Fantasy">
+<img src="https://cdn.myanimelist.net/images/anime/1337/99013.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Hunter x Hunter</h2>
+<div class="genre">Adventure • Action • Fantasy</div>
+<p class="anime-description">
+Gon Freecss sets out to become a Hunter and find his missing father.
+Features complex power systems, emotional arcs, and moral depth.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=hunter+x+hunter" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- BLEACH -->
+<div class="anime-card" data-genre="Action Supernatural Adventure">
+<img src="https://cdn.myanimelist.net/images/anime/3/40451.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Bleach</h2>
+<div class="genre">Action • Supernatural • Adventure</div>
+<p class="anime-description">
+Ichigo Kurosaki gains Soul Reaper powers and protects humans from evil spirits.
+A long-running series filled with sword fights and epic rivalries.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=bleach" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- CHAINSAW MAN -->
+<div class="anime-card" data-genre="Action Dark Supernatural">
+<img src="https://cdn.myanimelist.net/images/anime/1806/126216.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Chainsaw Man</h2>
+<div class="genre">Action • Dark • Supernatural</div>
+<p class="anime-description">
+Denji becomes a devil hunter with chainsaws for limbs in exchange for a normal life.
+Extremely violent, emotional, and unpredictable storytelling.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=chainsaw+man" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- SPY X FAMILY -->
+<div class="anime-card" data-genre="Comedy Action Family">
 <img src="https://cdn.myanimelist.net/images/anime/1441/122795.jpg">
 <div class="anime-info">
 <h2 class="anime-title">Spy x Family</h2>
-<div class="genre">Comedy • Action • Spy</div>
-<p>
-A master spy creates a fake family for a mission—unaware his wife is an assassin and his daughter is a telepath.
-This wholesome yet action-packed anime balances comedy, heartwarming family moments, and espionage.
+<div class="genre">Comedy • Action • Family</div>
+<p class="anime-description">
+A spy creates a fake family, unaware they all hide dangerous secrets.
+A wholesome mix of comedy, action, and heartwarming moments.
 </p>
+<button class="read-more-btn">Read more</button>
 <a href="https://hianime.to/search?keyword=spy+x+family" target="_blank">Watch</a>
 </div>
 </div>
 
-<!-- Fullmetal Alchemist: Brotherhood -->
-<div class="anime-card" data-genre="Action Adventure Fantasy">
-  <img src="https://cdn.myanimelist.net/images/anime/1223/96541.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Fullmetal Alchemist: Brotherhood</h2>
-    <div class="genre">Action • Adventure • Fantasy</div>
-    <p>
-      Brothers Edward and Alphonse Elric search for the Philosopher’s Stone after a forbidden alchemy ritual costs them their bodies.
-      A powerful story about sacrifice, morality, and the consequences of human ambition.
-    </p>
-    <a href="https://hianime.to/search?keyword=fullmetal+alchemist" target="_blank">Watch</a>
-  </div>
+<!-- ONE PUNCH MAN -->
+<div class="anime-card" data-genre="Action Comedy Superhero">
+<img src="https://cdn.myanimelist.net/images/anime/12/76049.jpg">
+<div class="anime-info">
+<h2 class="anime-title">One Punch Man</h2>
+<div class="genre">Action • Comedy • Superhero</div>
+<p class="anime-description">
+Saitama defeats any enemy with one punch and struggles with boredom.
+A parody of superhero tropes with insane animation and humor.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=one+punch+man" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Hunter x Hunter -->
-<div class="anime-card" data-genre="Adventure Action Fantasy">
-  <img src="https://cdn.myanimelist.net/images/anime/1337/99013.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Hunter x Hunter</h2>
-    <div class="genre">Adventure • Action • Fantasy</div>
-    <p>
-      Gon Freecss becomes a Hunter to find his long-lost father and explore the dangerous world beyond his home.
-      Known for smart battles, deep characters, and unpredictable story arcs.
-    </p>
-    <a href="https://hianime.to/search?keyword=hunter+x+hunter" target="_blank">Watch</a>
-  </div>
+<!-- VINLAND SAGA -->
+<div class="anime-card" data-genre="Action Drama Historical">
+<img src="https://cdn.myanimelist.net/images/anime/1500/103005.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Vinland Saga</h2>
+<div class="genre">Action • Drama • Historical</div>
+<p class="anime-description">
+A young Viking seeks revenge while being shaped by war and violence.
+A mature story about hatred, growth, and the meaning of peace.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=vinland+saga" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- My Hero Academia -->
-<div class="anime-card" data-genre="Action Superhero Fantasy">
-  <img src="https://cdn.myanimelist.net/images/anime/10/78745.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">My Hero Academia</h2>
-    <div class="genre">Action • Superhero • Fantasy</div>
-    <p>
-      In a world where superpowers are common, Izuku Midoriya dreams of becoming a hero despite being born powerless.
-      A modern shonen anime about courage, growth, and heroism.
-    </p>
-    <a href="https://hianime.to/search?keyword=my+hero+academia" target="_blank">Watch</a>
-  </div>
+<!-- BLUE LOCK -->
+<div class="anime-card" data-genre="Sports Psychological">
+<img src="https://cdn.myanimelist.net/images/anime/1258/126929.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Blue Lock</h2>
+<div class="genre">Sports • Psychological</div>
+<p class="anime-description">
+Japan creates an intense program to build the world's best striker.
+A brutal, ego-driven take on competitive football.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=blue+lock" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Steins;Gate -->
-<div class="anime-card" data-genre="Sci-Fi Thriller Drama">
-  <img src="https://cdn.myanimelist.net/images/anime/5/73199.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Steins;Gate</h2>
-    <div class="genre">Sci-Fi • Thriller • Drama</div>
-    <p>
-      A group of friends accidentally invent time travel using a microwave.
-      What starts as playful experimentation quickly turns into a tense struggle against fate and time itself.
-    </p>
-    <a href="https://hianime.to/search?keyword=steins+gate" target="_blank">Watch</a>
-  </div>
+<!-- SOLO LEVELING -->
+<div class="anime-card" data-genre="Action Fantasy">
+<img src="https://i.postimg.cc/9QVwfWgT/images-(6).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Solo Leveling</h2>
+<div class="genre">Action • Fantasy</div>
+<p class="anime-description">
+The weakest hunter gains the power to level up infinitely.
+A power-fantasy filled with monsters, dungeons, and hype moments.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=solo+leveling" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Chainsaw Man -->
-<div class="anime-card" data-genre="Action Dark Supernatural">
-  <img src="https://cdn.myanimelist.net/images/anime/1806/126216.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Chainsaw Man</h2>
-    <div class="genre">Action • Dark • Supernatural</div>
-    <p>
-      Denji, a poor teenager, merges with a chainsaw devil and becomes a devil hunter.
-      Brutal, emotional, and chaotic, this anime explores desire, survival, and loneliness.
-    </p>
-    <a href="https://hianime.to/search?keyword=chainsaw+man" target="_blank">Watch</a>
-  </div>
+<!-- HAIKYUU -->
+<div class="anime-card" data-genre="Sports School">
+<img src="https://cdn.myanimelist.net/images/anime/7/76014.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Haikyuu!!</h2>
+<div class="genre">Sports • School</div>
+<p class="anime-description">
+Hinata Shoyo joins his school volleyball team despite his short height.
+An inspiring sports anime focused on teamwork, rivalry, and growth.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=haikyuu" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Bleach -->
-<div class="anime-card" data-genre="Action Supernatural Adventure">
-  <img src="https://cdn.myanimelist.net/images/anime/3/40451.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Bleach</h2>
-    <div class="genre">Action • Supernatural • Adventure</div>
-    <p>
-      Ichigo Kurosaki gains the powers of a Soul Reaper and must protect both the living and spirit worlds.
-      Features sword combat, powerful transformations, and long-running story arcs.
-    </p>
-    <a href="https://hianime.to/search?keyword=bleach" target="_blank">Watch</a>
-  </div>
+<!-- KUROKO NO BASKET -->
+<div class="anime-card" data-genre="Sports School">
+<img src="https://cdn.myanimelist.net/images/anime/11/50453.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Kuroko no Basket</h2>
+<div class="genre">Sports • School</div>
+<p class="anime-description">
+A shadowy player helps his team challenge legendary basketball prodigies.
+Fast-paced matches with exaggerated skills and intense rivalries.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=kuroko+no+basket" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Dragon Ball Z -->
-<div class="anime-card" data-genre="Action Adventure Sci-Fi">
-  <img src="https://m.media-amazon.com/images/S/pv-target-images/334f00b53cf3ef848ea7048b25711bc98e8236ce1685a096990c80d0965835ea.png" alt="Dragon Ball Z Cover">
-  <div class="anime-info">
-    <h2 class="anime-title">Dragon Ball Z</h2>
-    <div class="genre">Action • Adventure • Sci-Fi</div>
-    <p>
-      Goku and his allies defend Earth against increasingly powerful enemies.
-      Famous for legendary battles, transformations, and shaping modern battle shonen anime.
-    </p>
-    <a href="https://hianime.to/search?keyword=dragon+ball+z" target="_blank">Watch</a>
-  </div>
+<!-- MOB PSYCHO 100 -->
+<div class="anime-card" data-genre="Action Comedy Supernatural">
+<img src="https://cdn.myanimelist.net/images/anime/8/80356.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Mob Psycho 100</h2>
+<div class="genre">Action • Comedy • Supernatural</div>
+<p class="anime-description">
+A powerful psychic boy seeks emotional growth instead of power.
+A unique mix of comedy, self-improvement, and explosive battles.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=mob+psycho+100" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Fairy Tail -->
-<div class="anime-card" data-genre="Adventure Fantasy Comedy">
-  <img src="https://cdn.myanimelist.net/images/anime/5/18179.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Fairy Tail</h2>
-    <div class="genre">Adventure • Fantasy • Comedy</div>
-    <p>
-      A guild of powerful mages take on dangerous missions while valuing friendship above all else.
-      Light-hearted, emotional, and packed with magic-filled action.
-    </p>
-    <a href="https://hianime.to/search?keyword=fairy+tail" target="_blank">Watch</a>
-  </div>
+<!-- RE:ZERO -->
+<div class="anime-card" data-genre="Fantasy Dark Isekai">
+<img src="https://cdn.myanimelist.net/images/anime/11/79410.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Re:Zero</h2>
+<div class="genre">Fantasy • Dark • Isekai</div>
+<p class="anime-description">
+Subaru gains the power to return from death but suffers endlessly.
+A dark isekai focused on trauma, despair, and emotional endurance.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=re:zero" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Re:Zero -->
-<div class="anime-card" data-genre="Isekai Dark Fantasy">
-  <img src="https://cdn.myanimelist.net/images/anime/11/79410.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Re:Zero</h2>
-    <div class="genre">Isekai • Dark • Fantasy</div>
-    <p>
-      Subaru is transported to another world where he discovers he can rewind time after death.
-      Each failure leaves emotional scars, making this a darker take on isekai stories.
-    </p>
-    <a href="https://hianime.to/search?keyword=Re:Zero" target="_blank">Watch</a>
-  </div>
+<!-- SWORD ART ONLINE -->
+<div class="anime-card" data-genre="Action Fantasy Sci-Fi">
+<img src="https://cdn.myanimelist.net/images/anime/11/39717.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Sword Art Online</h2>
+<div class="genre">Action • Fantasy • Sci-Fi</div>
+<p class="anime-description">
+Players are trapped in a deadly virtual reality MMORPG.
+Kirito fights to survive and free everyone from the game.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=sword+art+online" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Tokyo Revengers -->
-<div class="anime-card" data-genre="Action Drama Time-Travel">
-  <img src="https://cdn.myanimelist.net/images/anime/1839/122012.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Tokyo Revengers</h2>
-    <div class="genre">Action • Drama • Time-Travel</div>
-    <p>
-      A struggling adult travels back in time to his middle school days to prevent a tragic future.
-      Combines gang conflicts, emotional drama, and time-travel twists.
-    </p>
-    <a href="https://hianime.to/search?keyword=tokyo+revengers" target="_blank">Watch</a>
-  </div>
+<!-- TOKYO REVENGERS -->
+<div class="anime-card" data-genre="Action Drama Supernatural">
+<img src="https://cdn.myanimelist.net/images/anime/1839/122012.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Tokyo Revengers</h2>
+<div class="genre">Action • Drama • Supernatural</div>
+<p class="anime-description">
+A man travels back in time to save his friends from gang violence.
+A mix of delinquent action, tragedy, and emotional stakes.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=tokyo+revengers" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Konosuba -->
-<div class="anime-card" data-genre="Action Comedy Fantasy">
-  <img src="https://cdn.myanimelist.net/images/anime/8/77831.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Konosuba</h2>
-    <div class="genre">Action • Comedy • Fantasy</div>
-    <p>
-      After dying a comically pathetic death, Kazuma Satou is reincarnated in a fantasy world.
-      Together with the eccentric goddess Aqua, mage Megumin, and knight Darkness, he goes on hilarious and chaotic adventures.
-      The series is a parody of typical fantasy tropes, full of humor, mischief, and quirky characters.
-    </p>
-    <a href="https://hianime.to/search?keyword=konosuba" target="_blank">Watch</a>
-  </div>
+<!-- DR. STONE -->
+<div class="anime-card" data-genre="Sci-Fi Adventure">
+<img src="https://cdn.myanimelist.net/images/anime/1613/102576.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Dr. Stone</h2>
+<div class="genre">Sci-Fi • Adventure</div>
+<p class="anime-description">
+Humanity is turned to stone and revived thousands of years later.
+A science-driven adventure about rebuilding civilization.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=dr+stone" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- My Dress-Up Darling -->
-<div class="anime-card" data-genre="Romance Comedy Slice of Life">
-  <img src="https://cdn.myanimelist.net/images/anime/1179/119897.jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">My Dress-Up Darling</h2>
-    <div class="genre">Romance • Comedy • Slice of Life</div>
-    <p>
-      High school boy Wakana Gojo, a skilled doll artisan, meets cosplay-loving Marin Kitagawa.
-      They bond over creating cosplay costumes together, leading to romance and heartwarming moments.
-      The anime combines humor, creativity, and tender romance in a modern school setting.
-    </p>
-    <a href="https://hianime.to/search?keyword=my+dress-up+darling" target="_blank">Watch</a>
-  </div>
+<!-- FIRE FORCE -->
+<div class="anime-card" data-genre="Action Supernatural">
+<img src="https://i.postimg.cc/50WZhR2b/images-(1).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Fire Force</h2>
+<div class="genre">Action • Supernatural</div>
+<p class="anime-description">
+Fire soldiers battle human combustion phenomena threatening society.
+Stylish fights with mystery and world-building.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=fire+force" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Blue Box -->
-<div class="anime-card" data-genre="Romance Sports School">
-  <img src="https://i.postimg.cc/J4dJ3knt/images-(4).jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Blue Box</h2>
-    <div class="genre">Romance • Sports • School</div>
-    <p>
-      Taiki Inomata, a promising badminton player, and Chinatsu Kano, a top member of the girls' boxing team, navigate school life and sports.
-      Their growing relationship combines sports competition with heartwarming romantic moments.
-      The series blends youthful ambition, romance, and the pressures of balancing love and athletic dreams.
-    </p>
-    <a href="https://hianime.to/search?keyword=blue+box" target="_blank">Watch</a>
-  </div>
+<!-- ERased -->
+<div class="anime-card" data-genre="Psychological Thriller">
+<img src="https://cdn.myanimelist.net/images/anime/10/77957.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Erased</h2>
+<div class="genre">Psychological • Thriller</div>
+<p class="anime-description">
+A man travels back to childhood to prevent tragic murders.
+A gripping mystery with emotional storytelling.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=erased" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Wind Breaker -->
-<div class="anime-card" data-genre="Action Sports School">
-  <img src="https://i.postimg.cc/QM6rVhm6/images-(1).jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Wind Breaker</h2>
-    <div class="genre">Action • Sports • School</div>
-    <p>
-      Jay, a high school student and skilled biker, navigates friendship, rivalries, and the thrills of street biking.
-      The anime features adrenaline-fueled races, team dynamics, and personal growth.
-      With stylish action sequences and school life drama, it’s a perfect mix of sports and adventure.
-    </p>
-    <a href="https://hianime.to/search?keyword=wind+breaker" target="_blank">Watch</a>
-  </div>
+<!-- PARASYTE -->
+<div class="anime-card" data-genre="Horror Sci-Fi">
+<img src="https://cdn.myanimelist.net/images/anime/3/73178.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Parasyte</h2>
+<div class="genre">Horror • Sci-Fi</div>
+<p class="anime-description">
+Alien parasites invade humanity, feeding on humans to survive.
+A dark exploration of morality and human nature.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=parasyte" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Horimiya -->
-<div class="anime-card" data-genre="Romance Slice of Life School">
-  <img src="https://i.postimg.cc/vTb7jwFb/images-(3).jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Horimiya</h2>
-    <div class="genre">Romance • Slice of Life • School</div>
-    <p>
-      Kyoko Hori and Izumi Miyamura appear to be ordinary high school students but hide different sides of themselves.
-      Their unexpected friendship grows into a touching romance as they share their true selves.
-      Horimiya is known for its heartwarming storytelling, relatable characters, and tender everyday moments.
-    </p>
-    <a href="https://hianime.to/search?keyword=horimiya" target="_blank">Watch</a>
-  </div>
+<!-- HORIMIYA -->
+<div class="anime-card" data-genre="Romance School">
+<img src="https://cdn.myanimelist.net/images/anime/1695/111486.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Horimiya</h2>
+<div class="genre">Romance • School</div>
+<p class="anime-description">
+Two classmates discover hidden sides of each other.
+A realistic and heartwarming take on teenage romance.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=horimiya" target="_blank">Watch</a>
+</div>
 </div>
 
-<!-- Zom 100 -->
-<div class="anime-card" data-genre="Action Comedy Horror">
-  <img src="https://i.postimg.cc/6p9SZFyD/images-(2).jpg">
-  <div class="anime-info">
-    <h2 class="anime-title">Zom 100: Bucket List of the Dead</h2>
-    <div class="genre">Action • Comedy • Horror</div>
-    <p>
-      Akira Tendo lives a monotonous life until a zombie apocalypse hits his city.
-      Freed from his boring job by the chaos, he makes a bucket list to truly enjoy life amidst the undead.
-      The series mixes dark comedy, thrilling zombie action, and a celebration of living life to the fullest.
-    </p>
-    <a href="https://hianime.to/search?keyword=zom+100" target="_blank">Watch</a>
-  </div>
+<!-- TORADORA -->
+<div class="anime-card" data-genre="Romance Comedy School">
+<img src="https://cdn.myanimelist.net/images/anime/13/22128.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Toradora!</h2>
+<div class="genre">Romance • Comedy • School</div>
+<p class="anime-description">
+Two unlikely students help each other pursue their crushes.
+A classic rom-com with emotional depth.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=toradora" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- CLASSROOM OF THE ELITE -->
+<div class="anime-card" data-genre="Psychological School">
+<img src="https://cdn.myanimelist.net/images/anime/5/86830.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Classroom of the Elite</h2>
+<div class="genre">Psychological • School</div>
+<p class="anime-description">
+Students compete in mind games within an elite academy.
+A manipulative and strategic psychological thriller.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=classroom+of+the+elite" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- ZOM 100 -->
+<div class="anime-card" data-genre="Comedy Action Horror">
+<img src="https://i.postimg.cc/6p9SZFyD/images-(2).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Zom 100: Bucket List of the Dead</h2>
+<div class="genre">Comedy • Action • Horror</div>
+<p class="anime-description">
+After a zombie apocalypse ends his toxic work life, Akira decides to enjoy life fully.
+A colorful, hilarious take on zombies mixed with self-discovery.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=zom+100" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- CYBERPUNK EDGERUNNERS -->
+<div class="anime-card" data-genre="Sci-Fi Dark Action">
+<img src="https://cdn.myanimelist.net/images/anime/1818/126435.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Cyberpunk: Edgerunners</h2>
+<div class="genre">Sci-Fi • Dark • Action</div>
+<p class="anime-description">
+A street kid fights to survive in a brutal cyberpunk city.
+A tragic and stylish story about ambition and loss.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=cyberpunk+edgerunners" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- AKAME GA KILL -->
+<div class="anime-card" data-genre="Action Dark Fantasy">
+<img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Akame ga Kill</h2>
+<div class="genre">Action • Dark • Fantasy</div>
+<p class="anime-description">
+A group of assassins fights a corrupt empire.
+Known for shocking deaths and moral dilemmas.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=akame+ga+kill" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- NORAGAMI -->
+<div class="anime-card" data-genre="Action Supernatural Comedy">
+<img src="https://i.postimg.cc/x10BY4HR/images-(8).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Noragami</h2>
+<div class="genre">Action • Supernatural • Comedy</div>
+<p class="anime-description">
+A minor god seeks fame while helping humans with supernatural problems.
+Lighthearted action with emotional depth.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=noragami" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- DARLING IN THE FRANXX -->
+<div class="anime-card" data-genre="Sci-Fi Romance Action">
+<img src="https://cdn.myanimelist.net/images/anime/1614/90408.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Darling in the FranXX</h2>
+<div class="genre">Sci-Fi • Romance • Action</div>
+<p class="anime-description">
+Young pilots fight monsters in giant mechs while exploring love and identity.
+A dramatic sci-fi romance with emotional highs.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=darling+in+the+franxx" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- DEVILMAN CRYBABY -->
+<div class="anime-card" data-genre="Dark Horror Supernatural">
+<img src="https://i.postimg.cc/Qd91BXc0/images-(9).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Devilman Crybaby</h2>
+<div class="genre">Dark • Horror • Supernatural</div>
+<p class="anime-description">
+A kind boy merges with a demon to fight humanity's destruction.
+Extremely dark, emotional, and philosophical.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=devilman+crybaby" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- GINTAMA -->
+<div class="anime-card" data-genre="Comedy Action Sci-Fi">
+<img src="https://cdn.myanimelist.net/images/anime/3/72078.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Gintama</h2>
+<div class="genre">Comedy • Action • Sci-Fi</div>
+<p class="anime-description">
+Samurai live under alien rule in this parody-filled comedy.
+Balances absurd humor with serious arcs.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=gintama" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- BLACK CLOVER -->
+<div class="anime-card" data-genre="Action Fantasy">
+<img src="https://cdn.myanimelist.net/images/anime/2/88336.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Black Clover</h2>
+<div class="genre">Action • Fantasy</div>
+<p class="anime-description">
+A magicless boy aims to become Wizard King.
+Fast-paced battles and classic shounen energy.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=black+clover" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- FAIRY TAIL -->
+<div class="anime-card" data-genre="Adventure Fantasy Action">
+<img src="https://cdn.myanimelist.net/images/anime/5/18179.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Fairy Tail</h2>
+<div class="genre">Adventure • Fantasy • Action</div>
+<p class="anime-description">
+A guild of mages embarks on dangerous and emotional missions.
+Strong focus on friendship and loyalty.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=fairy+tail" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- ANGEL BEATS -->
+<div class="anime-card" data-genre="Drama Supernatural">
+<img src="https://cdn.myanimelist.net/images/anime/10/22061.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Angel Beats!</h2>
+<div class="genre">Drama • Supernatural</div>
+<p class="anime-description">
+Students battle fate in the afterlife before moving on.
+A mix of comedy and heartbreaking moments.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=angel+beats" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- MIRAI NIKKI -->
+<div class="anime-card" data-genre="Psychological Dark Thriller">
+<img src="https://cdn.myanimelist.net/images/anime/13/33465.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Future Diary</h2>
+<div class="genre">Psychological • Dark • Thriller</div>
+<p class="anime-description">
+Participants receive diaries that predict the future.
+A deadly survival game with extreme twists.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=future+diary" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- THE PROMISED NEVERLAND -->
+<div class="anime-card" data-genre="Thriller Psychological Dark">
+<img src="https://cdn.myanimelist.net/images/anime/1125/96929.jpg">
+<div class="anime-info">
+<h2 class="anime-title">The Promised Neverland</h2>
+<div class="genre">Thriller • Psychological • Dark</div>
+<p class="anime-description">
+Children uncover horrifying secrets about their orphanage.
+A tense battle of wits and survival.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=the+promised+neverland" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- NO GAME NO LIFE -->
+<div class="anime-card" data-genre="Fantasy Comedy Isekai">
+<img src="https://cdn.myanimelist.net/images/anime/5/65187.jpg">
+<div class="anime-info">
+<h2 class="anime-title">No Game No Life</h2>
+<div class="genre">Fantasy • Comedy • Isekai</div>
+<p class="anime-description">
+Two genius siblings dominate a world where games decide everything.
+Colorful visuals and mind games.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=no+game+no+life" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- BUNGO STRAY DOGS -->
+<div class="anime-card" data-genre="Action Supernatural Mystery">
+<img src="https://i.postimg.cc/x88qWRR5/images-(7).jpg">
+<div class="anime-info">
+<h2 class="anime-title">Bungo Stray Dogs</h2>
+<div class="genre">Action • Supernatural • Mystery</div>
+<p class="anime-description">
+Detectives and criminals wield literary-inspired powers.
+Stylish action mixed with character-driven drama.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=bungo+stray+dogs" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- KILL LA KILL -->
+<div class="anime-card" data-genre="Action Comedy">
+<img src="https://cdn.myanimelist.net/images/anime/8/75514.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Kill la Kill</h2>
+<div class="genre">Action • Comedy</div>
+<p class="anime-description">
+A girl battles a powerful academy using living clothes.
+Over-the-top action with satire and style.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=kill+la+kill" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- MADE IN ABYSS -->
+<div class="anime-card" data-genre="Adventure Dark Fantasy">
+<img src="https://cdn.myanimelist.net/images/anime/6/86733.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Made in Abyss</h2>
+<div class="genre">Adventure • Dark • Fantasy</div>
+<p class="anime-description">
+Children descend into a mysterious abyss filled with wonders and horrors.
+Cute art hides extreme darkness.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=made+in+abyss" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- ODD TAXI -->
+<div class="anime-card" data-genre="Mystery Psychological">
+<img src="https://cdn.myanimelist.net/images/anime/1981/113348.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Odd Taxi</h2>
+<div class="genre">Mystery • Psychological</div>
+<p class="anime-description">
+A taxi driver becomes entangled in a missing-person case.
+Smart dialogue-driven mystery with twists.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=odd+taxi" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- FLCL -->
+<div class="anime-card" data-genre="Sci-Fi Comedy">
+<img src="https://cdn.myanimelist.net/images/anime/7/77356.jpg">
+<div class="anime-info">
+<h2 class="anime-title">FLCL</h2>
+<div class="genre">Sci-Fi • Comedy</div>
+<p class="anime-description">
+A chaotic coming-of-age story full of absurd visuals.
+Short, experimental, and iconic.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=flcl" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- SAMURAI CHAMPLOO -->
+<div class="anime-card" data-genre="Action Adventure Historical">
+<img src="https://cdn.myanimelist.net/images/anime/11/29134.jpg">
+<div class="anime-info">
+<h2 class="anime-title">Samurai Champloo</h2>
+<div class="genre">Action • Adventure • Historical</div>
+<p class="anime-description">
+Three misfits travel Edo-era Japan with hip-hop flair.
+Stylish sword fights and memorable music.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=samurai+champloo" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- THE APOTHECARY DIARIES -->
+<div class="anime-card" data-genre="Drama Mystery Historical">
+<img src="https://cdn.myanimelist.net/images/anime/1708/138033.jpg">
+<div class="anime-info">
+<h2 class="anime-title">The Apothecary Diaries</h2>
+<div class="genre">Drama • Mystery • Historical</div>
+<p class="anime-description">
+Maomao, a clever apothecary, is pulled into the imperial court after being sold as a servant.
+Using her medical knowledge and sharp wit, she solves mysteries involving poisons, illness, and palace intrigue while uncovering secrets hidden behind royal walls.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=the+apothecary+diaries" target="_blank">Watch</a>
+</div>
+</div>
+
+<!-- THE DANGERS IN MY HEART -->
+<div class="anime-card" data-genre="Romance Comedy School">
+<img src="https://i.postimg.cc/RFNBmbky/images-(4).jpg">
+<div class="anime-info">
+<h2 class="anime-title">The Dangers in My Heart</h2>
+<div class="genre">Romance • Comedy • School</div>
+<p class="anime-description">
+Kyotaro Ichikawa believes himself to be a dark and twisted loner, but slowly forms a bond with the cheerful Anna Yamada.
+A surprisingly heartfelt and realistic romance about insecurity, growth, and first love.
+</p>
+<button class="read-more-btn">Read more</button>
+<a href="https://hianime.to/search?keyword=the+dangers+in+my+heart" target="_blank">Watch</a>
+</div>
+</div>
+
 </div>
 
 <footer>
-© 2025 The Anime Hub |All Rights Belong To Their Respective Owners |Built for anime lovers
+© 2025 The Anime Hub | Built for anime lovers|All rights reserved to their respective owners
 </footer>
 
 <script>
 function filterAnime() {
   let search = document.getElementById("searchBar").value.toLowerCase();
   let genre = document.getElementById("genreFilter").value;
-  let cards = document.getElementsByClassName("anime-card");
+  let cards = document.querySelectorAll(".anime-card");
 
-  for (let card of cards) {
+  cards.forEach(card => {
     let title = card.querySelector(".anime-title").innerText.toLowerCase();
-    let cardGenres = card.dataset.genre;
+    let cardGenres = card.dataset.genre || "";
 
     let matchesSearch = title.includes(search);
     let matchesGenre = genre === "all" || cardGenres.includes(genre);
 
-    card.style.display = matchesSearch && matchesGenre ? "" : "none";
-  }
+    card.style.display = matchesSearch && matchesGenre ? "flex" : "none";
+  });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".read-more-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const desc = btn.previousElementSibling;
+      desc.classList.toggle("expanded");
+      btn.textContent = desc.classList.contains("expanded")
+        ? "Read less"
+        : "Read more";
+    });
+  });
+});
 </script>
 
 </body>
-</html>
+                                     </html>
